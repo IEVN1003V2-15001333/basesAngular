@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container mt-5 content1">
+    <div class="row">
+      
+      <div class="col-md-6 ">
+        <h1 class="display-4 text-center"><b>Cinepolis</b></h1>
+        <div class="card p-4 bg-light">
+          <h2 class="h4 text-center">Bienvenido</h2>
+          <form [formGroup]="form" (ngSubmit)="calcularTotalBoletos()">
+
+            
+            <div class="form-group">
+              <label for="nombrePersona">Ingresa tu Nombre:</label>
+              <input class="form-control" formControlName="nombrePersona" type="text" id="nombrePersona" />
+            </div>
+
+            <div class="form-group">
+              <label for="cantidadCompradores">Cantidad de Compradores:</label>
+              <input class="form-control" formControlName="cantidadCompradores" type="number" id="cantidadCompradores" min="1" />
+            </div>            
+            
+            <div class="form-group">
+              <label for="cantidadBoletos">Numero de Boletos:</label>
+              <input class="form-control" formControlName="cantidadBoletos" type="number" id="cantidadBoletos" min="1" max="7" />
+            </div>
+            
+            <div class="form-group form-check mt-3">
+              <input class="form-check-input" formControlName="TarjetaCineco" type="checkbox" id="TarjetaCineco" />
+              <label class="form-check-label" for="TarjetaCineco"><b>¿Cuenta con Tarjeta CINECO?</b></label>
+            </div>
+            
+            
+            <div class="text-center mt-4">
+              <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Calcular</button>
+            </div>
+          </form>
+        </div>
+
+        
+        <div *ngIf="totalPagar" class="alert alert-success text-center mt-4">
+          <p>Nombre: {{ nombrePersona }}</p>
+          <p>Número de Compradores: {{ cantidadCompradores }}</p>
+          <p>Total a pagar: {{ totalPagar | currency:'USD':true }}</p>
+        </div>
+        
+        <div><br></div>
+        
+      </div>
+  
+      
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="card p-4 shadow-lg anuncio-container">
+          <h2 class="h4 text-center text-primary">¡Descuento Exclusivo!</h2>
+          <p class="lead text-center">
+            Paga tus boletos con tu tarjeta <strong>CINECO</strong> y recibe un 
+            <strong>10% de descuento adicional</strong> a los descuentos ya obtenidos.
+          </p>
+          <div class="text-center">
+            <img src="https://www.sdpnoticias.com/resizer/v2/PMV3SX3225BVPLSMVDIPHVPX34.png?smart=true&auth=dd6bb2eb34cdc76d269a72ee36fdc45c3ad319913941532405d62faeccbd5bfd&width=1440&height=810" alt="Tarjeta CINECO" class="img-fluid">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  
+  
+</body>
+</html>
+
+

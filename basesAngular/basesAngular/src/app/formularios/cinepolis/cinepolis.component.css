@@ -1,0 +1,51 @@
+body{
+    background: #74a4f2;
+    margin: 10px;
+    padding: auto;
+      
+}
+
+.content1{
+  padding: 20px;
+}
+  
+  .anuncio-container:hover {
+    transform: scale(1.05);
+  }
+
+
+  /* Animación de expansión y contracción */
+  @keyframes expandCollapse {
+    0%, 100% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+
+  .anuncio-container {
+    margin: 20px;
+    background-color: #f7f9fc;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    animation: expandCollapse 1.5s ease-in-out infinite;
+  }
+  
+  .anuncio-container h2 {
+    font-weight: bold;
+    color: #007bff; /* Color primario de Bootstrap */
+  }
+  
+  .anuncio-container p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .anuncio-container img {
+    max-width: 100%; /* Imagen responsiva */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+  }
+  
+  
