@@ -28,6 +28,7 @@ export class CinepolisComponent {
     });
   }
 
+
   calcularTotalBoletos(): void {
     if (this.form.valid) {
       const { nombrePersona, cantidadBoletos, cantidadCompradores, TarjetaCineco } = this.form.value;

@@ -8,7 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductoFilterPipe } from './product/producto-filter.pipe';
 import { OperasBasComponent } from './formularios/operas-bas/operas-bas.component';
 import { Ejemplo1Component } from './formularios/ejemplo1/ejemplo1.component';
-import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component'; // Asegúrate de que solo este esté importado
+import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component';
+import { ResistenciaComponent } from './practica/resistencia/resistencia.component'; // Asegúrate de que solo este esté importado
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component'
     ProductoFilterPipe,
     OperasBasComponent,
     Ejemplo1Component,
-    CinepolisComponent // Solo uno
+    CinepolisComponent,
+    ResistenciaComponent // Solo uno
   ],
   imports: [
     BrowserModule,

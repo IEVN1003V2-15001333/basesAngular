@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Calculadora de Resistencias</h1>
+  
+  <form [formGroup]="formulario" (ngSubmit)="calcular()" class="mb-4">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="banda1">Primera Banda</label>
+        <select id="banda1" formControlName="banda1" class="form-select">
+          <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="banda2">Segunda Banda</label>
+        <select id="banda2" formControlName="banda2" class="form-select">
+          <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="banda3">Tercera Banda</label>
+        <select id="banda3" formControlName="banda3" class="form-select">
+          <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="tolerancia">Tolerancia</label>
+        <div class="form-check">
+          <input type="radio" id="oro" formControlName="tolerancia" class="form-check-input" value="oro">
+          <label class="form-check-label" for="oro">Oro</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" id="plata" formControlName="tolerancia" class="form-check-input" value="plata">
+          <label class="form-check-label" for="plata">Plata</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Calcular</button>
+    </div>
+  </form>
+
+  <div *ngIf="resultado" class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Color 1</th>
+          <th>Color 2</th>
+          <th>Color 3</th>
+          <th>Tolerancia</th>
+          <th>Valor</th>
+          <th>Valor Máximo</th>
+          <th>Valor Mínimo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td [style.backgroundColor]="getColorCode(formulario.get('banda1')?.value)">{{formulario.get('banda1')?.value}}</td>
+          <td [style.backgroundColor]="getColorCode(formulario.get('banda2')?.value)">{{formulario.get('banda2')?.value}}</td>
+          <td [style.backgroundColor]="getColorCode(formulario.get('banda3')?.value)">{{formulario.get('banda3')?.value}}</td>
+          <td [style.backgroundColor]="getToleranceColor()">{{formulario.get('tolerancia')?.value === 'oro' ? 'Dorado 5%' : 'Plata 10%'}}</td>
+          <td>{{valor}}</td>
+          <td>{{valorMaximo}}</td>
+          <td>{{valorMinimo}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
