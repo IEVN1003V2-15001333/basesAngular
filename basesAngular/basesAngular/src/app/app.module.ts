@@ -9,7 +9,8 @@ import { ProductoFilterPipe } from './product/producto-filter.pipe';
 import { OperasBasComponent } from './formularios/operas-bas/operas-bas.component';
 import { Ejemplo1Component } from './formularios/ejemplo1/ejemplo1.component';
 import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component';
-import { ResistenciaComponent } from './practica/resistencia/resistencia.component'; // Asegúrate de que solo este esté importado
+import { ResistenciaComponent } from './practica/resistencia/resistencia.component';
+import { SignoZodiacalComponent } from './formularios/signo-zodiacal/signo-zodiacal.component'; // Asegúrate de que solo este esté importado
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ResistenciaComponent } from './practica/resistencia/resistencia.compone
     OperasBasComponent,
     Ejemplo1Component,
     CinepolisComponent,
-    ResistenciaComponent // Solo uno
+    ResistenciaComponent,
+    SignoZodiacalComponent // Solo uno
   ],
   imports: [
     BrowserModule,

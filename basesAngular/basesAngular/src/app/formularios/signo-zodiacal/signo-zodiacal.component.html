@@ -1,0 +1,62 @@
+<div class="container-fluid vh-100">
+    <div class="row h-100">
+      <!-- Columna izquierda: Formulario -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center bg-light">
+        <div class="w-75">
+          <form [formGroup]="formulario" (ngSubmit)="calcularSigno()">
+            <div class="form-group mb-3">
+              <h3>Registra tu Información</h3>
+              <label for="nombre">Nombre:</label>
+              <input formControlName="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
+            </div>
+  
+            <div class="form-group mb-3">
+              <label for="apaterno">Apellido Paterno:</label>
+              <input formControlName="apaterno" id="apaterno" class="form-control" placeholder="Apellido Paterno" required>
+            </div>
+  
+            <div class="form-group mb-3">
+              <label for="amaterno">Apellido Materno:</label>
+              <input formControlName="amaterno" id="amaterno" class="form-control" placeholder="Apellido Materno" required>
+            </div>
+  
+            <div class="form-group mb-3">
+              <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+              <div class="d-flex">
+                <input formControlName="dia" class="form-control me-2" placeholder="Día" required>
+                <input formControlName="mes" class="form-control me-2" placeholder="Mes" required>
+                <input formControlName="anio" class="form-control" placeholder="Año" required>
+              </div>
+            </div>
+  
+            <div class="form-group mb-3">
+              <label for="sexo">Sexo:</label>
+              <div class="form-check">
+                <input type="radio" id="masculino" formControlName="sexo" value="Masculino" class="form-check-input">
+                <label class="form-check-label" for="masculino">Masculino</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="femenino" formControlName="sexo" value="Femenino" class="form-check-input">
+                <label class="form-check-label" for="femenino">Femenino</label>
+              </div>
+            </div>
+  
+            <!-- Deshabilitar botón si el formulario es inválido -->
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!formulario.valid">Imprimir</button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Columna derecha: Información -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div *ngIf="mostrarInformacion" class="text-center">
+          <p>Hola <strong>{{ formulario.value.nombre }} {{ formulario.value.apaterno }} {{ formulario.value.amaterno }}</strong></p>
+          <p>Tienes <strong>{{ edad }}</strong> años</p>
+          <p>Tu signo zodiacal es <strong>{{ signoZodiacal }}</strong></p>
+          <p>Tu signo en el Horóscopo Chino es <strong>{{ signoChino }}</strong></p>
+          <img [src]="obtenerImagenSignoChino(signoChino)" alt="{{ signoChino }}" class="img-fluid" width="200px">
+        </div>
+      </div>
+    </div>
+  </div>
+  
